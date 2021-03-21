@@ -1,6 +1,11 @@
 version: '3.7'
 
 services:
+  rabbitmq:
+    image: rabbitmq:alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
   api:
     build:
       context: ./api
