@@ -15,3 +15,13 @@ services:
       - .env
     depends_on: 
       - rabbitmq
+  assembler:
+    build:
+      context: ./assembler
+    volumes: 
+      - ./common:/common
+    env_file: 
+      - .env
+    depends_on: 
+      - rabbitmq
+    
