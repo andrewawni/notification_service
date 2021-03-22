@@ -14,7 +14,7 @@ type IMessagingClient interface {
 	Publish(msg []byte, exchangeName string, exchangeType string) error
 	PublishOnQueue(msg []byte, queueName string) error
 	Subscribe(exchangeName string, exchangeType string, consumerName string, handlerFunc func(amqp.Delivery)) error
-	SubscribeToQueue(queueName string, consumerName string, handlerFunc func(amqp.Delivery)) error
+	SubscribeToQueue(queueName string, consumerName string, concurrencyLimit int, handlerFunc func(amqp.Delivery)) error
 	Close()
 }
 
@@ -173,7 +173,7 @@ func (m *MessagingClient) Subscribe(exchangeName string, exchangeType string, co
 	return nil
 }
 
-func (m *MessagingClient) SubscribeToQueue(queueName string, consumerName string, handlerFunc func(amqp.Delivery)) error {
+func (m *MessagingClient) SubscribeToQueue(queueName string, consumerName string, concurrencyLimit int, handlerFunc func(amqp.Delivery)) error {
 	ch, err := m.conn.Channel()
 	failOnError(err, "Failed to open a channel")
 
@@ -199,7 +199,10 @@ func (m *MessagingClient) SubscribeToQueue(queueName string, consumerName string
 	)
 	failOnError(err, "Failed to register a consumer")
 
-	go consumeLoop(msgs, handlerFunc)
+	for i := 0; i < concurrencyLimit; i++ {
+		go consumeLoop(msgs, handlerFunc)
+		log.Printf("Worker %d running", i)
+	}
 	return nil
 }
 
