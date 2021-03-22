@@ -19,5 +19,5 @@ type GroupNotification struct {
 
 type ProcessedNotification struct {
 	Notification
-	Targets []string `json:"targets`
+	Targets []string `json:"targets"`
 }
