@@ -3,5 +3,9 @@ github.com/andrewawni/notification_service/common v0.0.0-20210322174942-21533100
 github.com/andrewawni/notification_service/common v0.0.0-20210322174942-21533100dc13/go.mod h1:9CC0ADVUPZMuwgwJrmULvf1NdbMnhTrTO4ErHq00S30=
 github.com/andrewawni/notification_service/common v0.0.0-20210322223330-27b1f33be439 h1:E90qrRvVfRFic/XHCyN1tcNt000f3BvmAxVUWzNi6n0=
 github.com/andrewawni/notification_service/common v0.0.0-20210322223330-27b1f33be439/go.mod h1:9CC0ADVUPZMuwgwJrmULvf1NdbMnhTrTO4ErHq00S30=
+github.com/andrewawni/notification_service/common v0.0.0-20210322233412-66f7c41d0df1 h1:XJxwgifgHMWI0CfRovpk83C7TD9vhFfa/lZa5wQRsM4=
+github.com/andrewawni/notification_service/common v0.0.0-20210322233412-66f7c41d0df1/go.mod h1:9CC0ADVUPZMuwgwJrmULvf1NdbMnhTrTO4ErHq00S30=
+github.com/andrewawni/notification_service/common v0.0.0-20210322234034-db6be762dc64 h1:1GbCvZ6mfAdZlBupZVtsjahCSYMHOumz7ETIxqxohGg=
+github.com/andrewawni/notification_service/common v0.0.0-20210322234034-db6be762dc64/go.mod h1:9CC0ADVUPZMuwgwJrmULvf1NdbMnhTrTO4ErHq00S30=
 github.com/streadway/amqp v1.0.0 h1:kuuDrUJFZL1QYL9hUNuCxNObNzB0bV/ZG5jV3RWAQgo=
 github.com/streadway/amqp v1.0.0/go.mod h1:AZpEONHx3DKn8O/DFsRAY58/XVQiIPMTMB1SddzLXVw=
