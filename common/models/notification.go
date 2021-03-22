@@ -1,24 +1,28 @@
 package models
 
-type notification struct {
+type Notification struct {
 	ID      string `json:"notification_id"`
 	Content string `json:"content"`
 	Method  string `json:"method"`
 }
 
 type SingleNotification struct {
-	notification
+	Notification
 	UserID              string   `json:"user_id"`
 	PersonalizationTags []string `json:"personalization_tags"`
 }
 
 type GroupNotification struct {
-	notification
+	Notification
 	GroupID string `json:"group_id"`
 }
 
-type GroupNotificationDelivery struct {
-	GroupNotification
-	BatchID  string   `json:"batch_id"`
-	UsersIDs []string `json:"users_ids"`
+type ProcessedSingleNotification struct {
+	Notification
+	Target string `json:"target"`
+}
+
+type ProcessedGroupNotification struct {
+	Notification
+	Targets []string `json:"targets"`
 }
