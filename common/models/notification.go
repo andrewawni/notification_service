@@ -17,12 +17,7 @@ type GroupNotification struct {
 	GroupID string `json:"group_id"`
 }
 
-type ProcessedSingleNotification struct {
+type ProcessedNotification struct {
 	Notification
-	Target string `json:"target"`
-}
-
-type ProcessedGroupNotification struct {
-	Notification
-	Targets []string `json:"targets"`
+	Targets []string `json:"targets`
 }
