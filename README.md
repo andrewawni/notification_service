@@ -33,7 +33,7 @@ body:
 ```
 `content` can contain tags surrounded by '%' reflecting fields in the `personalization_tags` array to be interpolated later
 
-- /`sendSingleNotification`
+- /`sendGroupNotification`
 ```
 body:
 {
