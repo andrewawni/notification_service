@@ -47,8 +47,8 @@ func singleNotificationsWorker(d amqp.Delivery) {
 		content = strings.Replace(content, pattern, attributes[attr], -1)
 	}
 	notification.Content = integration.TranslateContentByLocale(content, attributes["locale"])
-	processedNotification := models.ProcessedSingleNotification{Notification: notification.Notification}
-	processedNotification.Target = attributes[methodToTarget[notification.Method]]
+	processedNotification := models.ProcessedNotification{Notification: notification.Notification}
+	processedNotification.Targets = []string{attributes[methodToTarget[notification.Method]]}
 	// push on queue
 	payload, _ := json.Marshal(&processedNotification)
 	client.PublishOnQueue([]byte(payload), processedNotificationsQueueName)
@@ -70,8 +70,7 @@ func groupNotificationsWorker(d amqp.Delivery) {
 			end = len(usersIDs)
 		}
 		batchUsersIDs := usersIDs[i:end]
-		processedNotification := models.ProcessedGroupNotification{Notification: notification.Notification}
-		// processedNotification.notification = notification.notification
+		processedNotification := models.ProcessedNotification{Notification: notification.Notification}
 		targets := []string{}
 		for _, userID := range batchUsersIDs {
 			attr := integration.GetUserAttributes(userID, []string{targetField})
